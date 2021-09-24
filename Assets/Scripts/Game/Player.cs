@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     [Header("Gameplay")]
     [SerializeField] private Camera playerCamera;
 
-    public int ammo;
+    public int initialAmmo=12;
+    
+    public int ammo { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,22 @@ public class Player : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
         _playerInputActions.Player.Fire.performed += Fire;
+        ammo = initialAmmo;
 
-        ammo = 10;
+
+
     }
 
     //<summary>Get bullet from object pooler and set the position</summary>
     void Fire(InputAction.CallbackContext context)
     {
-        GameObject bulletObj=ObjectPoolingManager.Instance.GetBullet();
-        bulletObj.transform.position = playerCamera.transform.position;
-        bulletObj.transform.forward = playerCamera.transform.forward;
+        if (ammo > 0)
+        {
+
+            ammo--;
+            GameObject bulletObj = ObjectPoolingManager.Instance.GetBullet();
+            bulletObj.transform.position = playerCamera.transform.position;
+            bulletObj.transform.forward = playerCamera.transform.forward;
+        }
     }
 }
