@@ -719,7 +719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8270109758768216069}
-  ammo: 0
+  initialAmmo: 12
+  initialHealth: 100
 --- !u!1 &5045563349091494861
 GameObject:
   m_ObjectHideFlags: 0
