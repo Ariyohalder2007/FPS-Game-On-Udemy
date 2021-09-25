@@ -1,19 +1,21 @@
-
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Game
 {
-    [Header("Game")]
-    public Player player;
-
-    [Header("UI")] 
-    public TMP_Text ammoText;
-    public TMP_Text healthText;
-
-    private void Update()
+    public class GameManager : MonoBehaviour
     {
-        ammoText.text = player.ammo + "/" + player.initialAmmo;
-        healthText.text = "Health: " + player.health;
+        [Header("Game")]
+        public Player player;
+        
+        [Header("UI")] 
+        public TMP_Text ammoText;
+        public TMP_Text healthText;
+
+        private void Update()
+        {
+            ammoText.text = player.Ammo + "/" + player.initialAmmo;
+            healthText.text = "Health: " + player.Health;
+        }
     }
 }
