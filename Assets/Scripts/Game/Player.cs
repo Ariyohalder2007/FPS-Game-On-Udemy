@@ -13,7 +13,7 @@ namespace Game
         [Header("Gameplay")]
         [SerializeField] private Camera playerCamera;
 
-        [SerializeField] private float knockbackForce=10f;
+        [SerializeField] private float knockBackForce=10f;
 
         private bool _isHurt;
         public float hurtDuration = .5f;
@@ -67,6 +67,7 @@ namespace Game
                     _isHurt = true;
                     Vector3 hurtDirection = (transform.position - enemy.transform.position).normalized;
                     Vector3 knockbackDir = (hurtDirection + Vector3.up).normalized;
+                    GetComponent<ForceReceiver>().AddForce(knockbackDir, knockBackForce);
                     StartCoroutine(HurtRoutine());
                 }
             }
