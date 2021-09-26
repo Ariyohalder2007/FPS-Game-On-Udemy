@@ -2198,10 +2198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3722767220191527172, guid: 03ff97450527dbc4e9cf1033db4efa31, type: 3}
-      propertyPath: initialHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5045563349091494861, guid: 03ff97450527dbc4e9cf1033db4efa31, type: 3}
       propertyPath: m_Name
       value: FPSPlayer
