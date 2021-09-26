@@ -27,5 +27,5 @@ Level1 - Its the Level1 for playing the game
   
 ## Release Info
 
-The Game is under Development and will be Released on itch
+The Game is under Development and will be Released on itch.io
  
