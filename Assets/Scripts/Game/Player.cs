@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Game.Shooting;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils;
@@ -15,6 +16,7 @@ namespace Game
         [SerializeField] private Camera playerCamera;
 
         [SerializeField] private float knockBackForce=10f;
+        public bool Killed { get; private set; }
 
         private bool _isHurt;
         public float hurtDuration = .5f;
@@ -43,9 +45,9 @@ namespace Game
         //<summary>Get bullet from object pooler and set the position</summary>
         void Fire(InputAction.CallbackContext context)
         {
-            if (Ammo > 0)
+            if (Ammo > 0 )
             {
-
+                
                 Ammo--;
                 var bulletObj = ObjectPoolingManager.Instance.GetBullet(true);
                 bulletObj.transform.position = playerCamera.transform.position;
@@ -66,7 +68,7 @@ namespace Game
             if (!_isHurt)
             {
                 GameObject hazard = null;
-             if (other.TryGetComponent<Enemy.Enemy>(out Enemy.Enemy enemy))
+             if (other.TryGetComponent<Enemy.Enemy>(out Enemy.Enemy enemy) && enemy.Killed)
              {
                  hazard = enemy.gameObject;
                  Health -= enemy.damage;
@@ -92,7 +94,21 @@ namespace Game
                  GetComponent<ForceReceiver>().AddForce(knockbackDir, knockBackForce);
                  StartCoroutine(HurtRoutine());
              }
+
+             if (Health<=0 && !Killed)
+             {
+                 Killed = true;
+                 OnKill();
+             }
             }
+        }
+
+        void OnKill()
+        {
+            GetComponent<FirstPersonController>().enabled = false;
+            GetComponent<CharacterController>().enabled = false;
+            _playerInputActions.Player.Disable();
+            GetComponentInChildren<WeaponSway>().input.Player.Disable();
         }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)

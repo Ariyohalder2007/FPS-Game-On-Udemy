@@ -8,7 +8,7 @@ namespace Game.Shooting
         [Header("Sway Settings")]
         [SerializeField] private float smooth;
         [SerializeField] private float multiplier;
-        private com.ariyo.StarterAssets.StarterAssets input;
+        public com.ariyo.StarterAssets.StarterAssets input;
 
         private void Awake()
         {
