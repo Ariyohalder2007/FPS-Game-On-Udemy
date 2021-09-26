@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Shooting;
 using UnityEngine;
 
 namespace Utils
@@ -23,18 +24,21 @@ namespace Utils
             }
         }
 
-        public GameObject GetBullet()
+        public GameObject GetBullet(bool shotByPlayer)
         {
             foreach (var bullet in _bulletList)    
             {
                 if (!bullet.activeInHierarchy)
                 {
                     bullet.SetActive(true);
+                    bullet.GetComponent<Bullet>().shotByPlayer = shotByPlayer;
                     return bullet;
                 }
             }
             GameObject prefabInstance=Instantiate(bulletPrefab, transform, true);
+            prefabInstance.GetComponent<Bullet>().shotByPlayer = shotByPlayer;
             _bulletList.Add(prefabInstance);
+            
             return prefabInstance;
         }
     }

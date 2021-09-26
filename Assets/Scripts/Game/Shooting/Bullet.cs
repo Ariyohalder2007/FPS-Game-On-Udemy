@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Shooting
@@ -7,7 +8,9 @@ namespace Game.Shooting
         public float speed = 8f;
         private float _lifeTimer;
         public float lifeDuration=2f;
-        bool _moving;
+        public int damage = 5;
+        public bool _moving;
+        public bool shotByPlayer;
 
         private void Start()
         {
@@ -36,5 +39,7 @@ namespace Game.Shooting
 
             }
         }
+
+      
     }
 }

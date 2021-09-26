@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Game.Shooting;
 using UnityEngine;
@@ -21,7 +22,8 @@ namespace Game
 
         public int initialAmmo=12;
         public int initialHealth = 100;
-    
+        
+
         [HideInInspector] public int Ammo { get; private set; }
         [HideInInspector] public int Health { get; private set; }
         // Start is called before the first frame update
@@ -45,32 +47,57 @@ namespace Game
             {
 
                 Ammo--;
-                GameObject bulletObj = ObjectPoolingManager.Instance.GetBullet();
+                var bulletObj = ObjectPoolingManager.Instance.GetBullet(true);
                 bulletObj.transform.position = playerCamera.transform.position;
                 bulletObj.transform.forward = playerCamera.transform.forward;
             }
         }
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+        private void OnTriggerEnter(Collider other)
         {
             // Collect AmmoCrate
-            if (hit.gameObject.TryGetComponent<AmmoCrate>(out AmmoCrate crate))
+            if (other.TryGetComponent<AmmoCrate>(out AmmoCrate crate))
             {
                 Ammo += crate.ammo;
-                Destroy(hit.gameObject);
+                Destroy(other.gameObject);
             }
-            else if (hit.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+           
+            //Checking for hurt 
+            if (!_isHurt)
             {
-                if (!_isHurt)
-                { 
-                    Health -= enemy.damage;
-                    _isHurt = true;
-                    Vector3 hurtDirection = (transform.position - enemy.transform.position).normalized;
-                    Vector3 knockbackDir = (hurtDirection + Vector3.up).normalized;
-                    GetComponent<ForceReceiver>().AddForce(knockbackDir, knockBackForce);
-                    StartCoroutine(HurtRoutine());
-                }
+                GameObject hazard = null;
+             if (other.TryGetComponent<Enemy.Enemy>(out Enemy.Enemy enemy))
+             {
+                 hazard = enemy.gameObject;
+                 Health -= enemy.damage;
+                 
+             }
+
+             else if (other.TryGetComponent<Bullet>(out var bullet))
+             {
+                 if (!bullet.shotByPlayer)
+                 {
+                     hazard = bullet.gameObject;
+                     Health -= bullet.damage;
+                     bullet.gameObject.SetActive(false);
+                     bullet._moving = false;
+                 }
+             }
+
+             if (hazard)
+             {
+                 _isHurt = true;
+                 var hurtDirection = (transform.position - hazard.transform.position).normalized;
+                 var knockbackDir = (hurtDirection + Vector3.up).normalized;
+                 GetComponent<ForceReceiver>().AddForce(knockbackDir, knockBackForce);
+                 StartCoroutine(HurtRoutine());
+             }
             }
+        }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            
         }
 
         IEnumerator HurtRoutine()
@@ -78,5 +105,7 @@ namespace Game
             yield return new WaitForSeconds(hurtDuration);
             _isHurt = false;
         }
+
+       
     }
 }
