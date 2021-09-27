@@ -10,7 +10,10 @@ namespace Game
 {
     public class Player : MonoBehaviour
     {
+        
         private PlayerInputActions _playerInputActions;
+        
+        
     
         [Header("Gameplay")]
         [SerializeField] private Camera playerCamera;

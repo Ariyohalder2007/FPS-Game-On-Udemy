@@ -1,6 +1,8 @@
 using System;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Game
@@ -9,6 +11,10 @@ namespace Game
     {
         [Header("Game")]
         public Player player;
+
+        [SerializeField] private float resetTimer=3f;
+        private bool gameOver;
+        
         
         [Header("UI")] 
         public TMP_Text ammoText;
@@ -44,16 +50,35 @@ namespace Game
             if (aliveEnemies==0)
             {
                 infoText.text = "You Win!";
-                infoText.gameObject.SetActive(true);
-                crossHairImage.gameObject.SetActive(false);
+                gameOver = true;
             }
 
             if (player.Killed)
             {
                 infoText.text = "You Lose!";
+                
+                gameOver = true;
+            }
+
+            if (gameOver)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 infoText.gameObject.SetActive(true);
                 crossHairImage.gameObject.SetActive(false);
+                resetTimer -= Time.deltaTime;
+                infoText.text += "\n Reloading in "+Mathf.RoundToInt(resetTimer)+"...";
+                if (resetTimer<=0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+                
             }
+        }
+
+        public void LoadMenu()
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 }
