@@ -30,6 +30,8 @@ namespace Game
         {
             infoText.gameObject.SetActive(false);
             crossHairImage.gameObject.SetActive(true);
+	    Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 

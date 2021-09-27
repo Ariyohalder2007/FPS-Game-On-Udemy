@@ -66,9 +66,15 @@ namespace Game
                 Ammo += crate.ammo;
                 Destroy(other.gameObject);
             }
+            // Collect HealthCrate
+            else if (other.TryGetComponent<HealthCrate>(out HealthCrate healthCrate))
+            {
+                Health += healthCrate.health;
+                Destroy(other.gameObject);
+            }
            
             //Checking for hurt 
-            if (!_isHurt)
+            else if (!_isHurt)
             {
                 GameObject hazard = null;
              if (other.TryGetComponent<Enemy.Enemy>(out Enemy.Enemy enemy) && enemy.Killed)

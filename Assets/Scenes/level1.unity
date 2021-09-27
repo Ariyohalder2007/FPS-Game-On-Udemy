@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 548458819}
-  resetTimer: 3
+  resetTimer: 5
   ammoText: {fileID: 134681580}
   healthText: {fileID: 1661084341}
   enemyCountText: {fileID: 1145988269}
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2198,8 +2198,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.36862746}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7254902}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.18431373}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5411765}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.80784315}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.5529412}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -2579,3 +2579,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2209620087968981751, guid: c2be2b97e7ff2ce42bdc9aec841eac7f, type: 3}
   m_PrefabInstance: {fileID: 2209620087558380425}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6145208644226232340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1425438
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763385, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894789201026763386, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
+      propertyPath: m_Name
+      value: HealthCrate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03f541d672e192648a9e3e4f2f86382d, type: 3}
