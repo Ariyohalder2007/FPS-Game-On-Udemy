@@ -17,6 +17,8 @@ namespace Game.Enemy
         private NavMeshAgent _agent;
         public float chasingDistance = 12f;
         public float chasingInterval = 2f;
+        public AudioSource audioSource;
+        public AudioClip deathAudio;
         
 
         private void Awake()
@@ -65,6 +67,7 @@ namespace Game.Enemy
 
         protected override void OnKill()
         {
+            audioSource.PlayOneShot(deathAudio);
             _agent.enabled = false;
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().isKinematic = false;
