@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,20 +26,14 @@ namespace Game
         [SerializeField] private Image crossHairImage;
 
 
-        private void Awake()
+        
+
+        private void Start()
         {
             if (Application.platform==RuntimePlatform.Android)
             {
                 mobileUI.SetActive(true);
             }
-            else
-            {
-                mobileUI.SetActive(false);
-            }
-        }
-
-        private void Start()
-        {
             infoText.gameObject.SetActive(false);
             crossHairImage.gameObject.SetActive(true);
 	    Cursor.visible = false;
