@@ -14,17 +14,30 @@ namespace Game
 
         [SerializeField] private float resetTimer=3f;
         private bool gameOver;
+        [SerializeField] private GameObject enemyContainer;
+        
         
         
         [Header("UI")] 
+        [SerializeField] private GameObject mobileUI;
         public TMP_Text ammoText;
         public TMP_Text healthText;
         [SerializeField] private TMP_Text enemyCountText;
         [SerializeField] private TMP_Text infoText;
         [SerializeField] private Image crossHairImage;
-        
-        [SerializeField] private GameObject enemyContainer;
-        
+
+
+        private void Awake()
+        {
+            if (Application.platform==RuntimePlatform.Android)
+            {
+                mobileUI.SetActive(true);
+            }
+            else
+            {
+                mobileUI.SetActive(false);
+            }
+        }
 
         private void Start()
         {
