@@ -14,10 +14,10 @@ namespace Game
         [SerializeField] private float resetTimer=3f;
         private bool gameOver;
         [SerializeField] private GameObject enemyContainer;
-        
-        
-        
-        [Header("UI")] 
+
+
+
+        [Header("UI")]
         [SerializeField] private GameObject mobileUI;
         public TMP_Text ammoText;
         public TMP_Text healthText;
@@ -26,7 +26,7 @@ namespace Game
         [SerializeField] private Image crossHairImage;
 
 
-        
+
 
         private void Start()
         {
@@ -44,9 +44,9 @@ namespace Game
         private void Update()
         {
             int aliveEnemies = 0;
-            ammoText.text = player.Ammo + "/" + player.initialAmmo;
+            ammoText.text = player.Ammo+"";
             healthText.text = "Health: " + player.Health;
-           
+
             foreach (var enemy in enemyContainer.GetComponentsInChildren<Enemy.Enemy>())
             {
                 if (!enemy.Killed)
@@ -64,7 +64,7 @@ namespace Game
             if (player.Killed)
             {
                 infoText.text = "You Lose!";
-                
+
                 gameOver = true;
             }
 
@@ -80,7 +80,7 @@ namespace Game
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
-                
+
             }
         }
 
