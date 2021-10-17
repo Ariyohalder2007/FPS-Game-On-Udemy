@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8185730036055579677}
   - component: {fileID: 8185730036055579683}
-  - component: {fileID: 8185730036055579676}
+  - component: {fileID: 655763329}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -74,7 +74,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185730036055579678}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8185730036055579676
+--- !u!23 &655763329
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ea4367c584c03b4f94d27664d44f096, type: 2}
+  - {fileID: 2100000, guid: a16a25a63dbbc114c9dcfc5bdf1a56be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8185730036170699754}
   - component: {fileID: 8185730036170699752}
-  - component: {fileID: 8185730036170699753}
+  - component: {fileID: 655763328}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -155,7 +155,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185730036170699755}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8185730036170699753
+--- !u!23 &655763328
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ea4367c584c03b4f94d27664d44f096, type: 2}
+  - {fileID: 2100000, guid: a16a25a63dbbc114c9dcfc5bdf1a56be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8185730036950173344}
   - component: {fileID: 8185730036950173350}
-  - component: {fileID: 8185730036950173351}
+  - component: {fileID: 655763327}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -315,7 +315,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185730036950173345}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8185730036950173351
+--- !u!23 &655763327
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,7 +334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ea4367c584c03b4f94d27664d44f096, type: 2}
+  - {fileID: 2100000, guid: a16a25a63dbbc114c9dcfc5bdf1a56be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
